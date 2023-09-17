@@ -1,8 +1,24 @@
 import streamlit as st
-from clarifai_utils.modules.css import ClarifaiStreamlitCSS
+import clarifai
 
-st.set_page_config(layout="wide")
+# Create a Clarifai client
+client = clarifai.Client('a7cf76e4c31146d19e5e406343d696bd')
 
-ClarifaiStreamlitCSS.insert_default_css(st)
+# Set the LLAMA2 model
+model = client.text().predict(model_id="llama2-13b")
 
-st.markdown("Please select a specific page from the sidebar to the left")
+# Define a function to generate predictions
+def generate_predictions(text):
+    predictions = model.predict(text)
+    return predictions
+
+# Create a text input field
+text_input = st.text_input("Enter some text:")
+
+# Generate predictions
+predictions = generate_predictions(text_input)
+
+# Display the predictions
+st.write("Predictions:")
+for prediction in predictions:
+    st.write(prediction['text'])
