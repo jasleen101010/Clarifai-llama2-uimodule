@@ -69,4 +69,4 @@ def get_response(prompt):
 
     # Uncomment this line to print the full Response JSON
     # print(results)
-    print(response)
+    return(response)
