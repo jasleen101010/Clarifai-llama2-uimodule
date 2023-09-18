@@ -68,5 +68,6 @@ def get_response(prompt):
         response += output.data.text.raw + "\n"
 
     # Uncomment this line to print the full Response JSON
-    return(results)
-    #print(response)
+    # print(results)
+    print(response)
+    get_response("I am happy")
