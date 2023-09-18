@@ -68,5 +68,5 @@ def get_response(prompt):
         response += output.data.text.raw + "\n"
 
     # Uncomment this line to print the full Response JSON
-    print(results)
+    return(results)
     #print(response)
